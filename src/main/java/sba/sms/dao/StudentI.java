@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface StudentI {
     List<Student> getAllStudents();
+
     void createStudent(Student student);
 
     Student getStudentByEmail(String email);

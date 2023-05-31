@@ -15,21 +15,21 @@ import java.util.Scanner;
  * Business Requirement:
  * task is to create a basic School Management System
  * where students can register for courses, and view the course assigned to them.
- *<br />
+ * <br />
  * App uses <br />
  * Initialize dummy data: {@link CommandLine#addData()} <br />
  * Two models: {@link Student} & {@link Course} <br />
  * Two services: {@link StudentService} & {@link CourseService}
  *
- * @author  Jafer Alhaboubi
+ * @author Jafer Alhaboubi
  * @since sba-core-java-hibernate-junit 1.0
- * 
+ * <p>
  * Note: Do not change code in main method located in App.java
  */
 @Log
 public class App {
-    static final  StudentService studentService = new StudentService();
-    static final  CourseService courseService = new CourseService();
+    static final StudentService studentService = new StudentService();
+    static final CourseService courseService = new CourseService();
 
     public static void main(String[] args) {
 
@@ -41,7 +41,7 @@ public class App {
             System.out.printf("Select # from menu:%n1.Student%n2.Quit%n");
             userInput = input.nextInt();
             if (userInput == 1) {
-                System.out.printf("Enter student email: ");
+                System.out.print("Enter student email: ");
                 String email = input.next();
                 System.out.printf("Enter %s's password: ", email.substring(0, email.indexOf("@")));
                 String password = input.next();
@@ -59,7 +59,7 @@ public class App {
                         for (Course course : courseList) {
                             System.out.printf("%-2d | %-20s | %s%n", course.getId(), course.getName(), course.getInstructor());
                         }
-                        System.out.printf("select course #: ");
+                        System.out.print("select course #: ");
                         int courseId = input.nextInt();
                         if (courseId > 0 && courseId <= courseList.size()) {
                             studentService.registerStudentToCourse(email, (courseId));

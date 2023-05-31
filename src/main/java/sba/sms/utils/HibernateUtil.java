@@ -11,14 +11,9 @@ public class HibernateUtil {
         // Utility classes should not have public constructors
     }
 
-    private static SessionFactory sessionFactory = buildSessionFactory();
-
-    private static SessionFactory buildSessionFactory()
-    {
-        try
-        {
-            if (sessionFactory == null)
-            {
+    private static SessionFactory buildSessionFactory() {
+        try {
+            if (sessionFactory == null) {
                 StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
                         .configure("hibernate.cfg.xml").build();
 
@@ -32,7 +27,7 @@ public class HibernateUtil {
         } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);
         }
-    }
+    }    private static SessionFactory sessionFactory = buildSessionFactory();
 
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
@@ -41,6 +36,8 @@ public class HibernateUtil {
     public static void shutdown() {
         getSessionFactory().close();
     }
+
+
 
 
 }
