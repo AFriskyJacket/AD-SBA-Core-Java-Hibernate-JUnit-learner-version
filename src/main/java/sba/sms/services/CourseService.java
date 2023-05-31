@@ -23,7 +23,7 @@ public class CourseService implements CourseI {
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            if (!queryAllCourses(session, transaction).stream().anyMatch(s -> s.equals(course))) {
+            if (queryAllCourses(session, transaction).stream().noneMatch(s -> s.equals(course))) {
                 session.persist(course);
                 transaction.commit();
             }

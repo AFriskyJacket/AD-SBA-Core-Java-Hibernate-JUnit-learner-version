@@ -13,8 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CourseServiceTest {
     static CourseService courseService;
-    private static String instructorPhillip = "Phillip Witkin";
-    private static List<Course> expectedCourses = new ArrayList<>(Arrays.asList(
+    final private static String instructorPhillip = "Phillip Witkin";
+    final private static List<Course> expectedCourses = new ArrayList<>(Arrays.asList(
             new Course(1, "Java", instructorPhillip),
             new Course(2, "Frontend", "Kasper Kain"),
             new Course(3, "JPA", "Jafer Alhaboubi"),
